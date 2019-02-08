@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1549639857760.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "669151783",
+    "id" : "C69DAF0F",
+    "lastKnownWriteTime" : 1549640532,
+    "last_content_update" : 1549640532207,
+    "path" : "D:/DataAnalytics_using_R/DAmarkdown.Rmd",
+    "project_path" : "DAmarkdown.Rmd",
+    "properties" : {
+        "cursorPosition" : "1,0",
+        "scrollLine" : "0",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}
