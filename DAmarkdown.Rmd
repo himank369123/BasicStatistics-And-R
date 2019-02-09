@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo = TRUE)
 #Contents
 
 
-This is an R Markdown document consisting basic methods oF *data analysis, stastical inFerence, data visualization* and some other data inbuilt Function oF R.
+This is an R Markdown document consisting basic methods oF *data analysis, stastical inFerence, data visualization* and some other inbuilt Function oF R.
 A large part oF the data and methods used in this document were taken From Foundation OF Data Analysis part-I From **edx** <https://courses.edx.org/courses/course-v1:UTAustinX+UT.7.11x+2T2017/course/>
 
 #UniVariate Data:
@@ -22,8 +22,9 @@ Example: You weigh the pups and get these results:
 The one variable is Puppy Weight
 
 ```{r }
-pups=c(1,3,4,6,8,10,10)
+pups=c(1,3,3,3,3,4,6,6,6,7,8,10,10)
 ```
+
 
 ##Measure OF Center In Univariate Data
 * Mean:The arithmetic mean is the central value oF a discrete set oF numbers: speciFically, the sum oF the values divided by the number oF values.
@@ -70,12 +71,64 @@ knitr::include_graphics("C:/Users/himank/Desktop/markdown resources/mmm.png")
 
 
 
+#Data Visualization:
+###Numerical Univariate DATA:
+** 1. Histogram**:A histogram is a diagram consisting of rectangles whose area is proportional to the frequency of a variable and whose width is equal to the class interval.
+In R histogram can be create like shown below:
+```{r}
+hist(pups)
+```
+
+```{r , echo=FALSE, Fig.cap="A caption", out.width = '50%'}
+knitr::include_graphics("C:/Users/himank/Desktop/markdown resources/hist.png")
+```
 
 
+**2.Dot Plot**:A dot chart or dot plot is a statistical chart consisting of data points plotted on a fairly simple scale, typically using filled in circles.
+Dot plot in R can be obtained by dotchart()
+```{r}
+dotchart(pups)
+```
+
+**3.Stem and Leaf Plot**:A Stem and Leaf Plot is a special table where each data value is split into a "stem" (the first digit or digits) and a "leaf" (usually the last digit). Like in this example:
+```{r  , echo=FALSE, Fig.cap="A caption", out.width = '50%'}
+knitr::include_graphics("C:/Users/himank/Desktop/markdown resources/stemleaf.png")
+```
+
+
+**4.Box and Whisker Plot**:A box and whisker plot is a very convenient and informative way to diplay the info captured in the five number summary. A box and whisker plot shows the centers and spread of the values on a single quantative variable.
+
+```{r , echo=FALSE, Fig.cap="A caption", out.width = '50%'}
+knitr::include_graphics("C:/Users/himank/Desktop/markdown resources/boxwhisker.png")
+```
+
+###Categorical Data:
+**1.Bar Plot**:A bar chart or bar graph is a chart or graph that presents categorical data with rectangular bars with heights or lengths proportional to the values that they represent. The bars can be plotted vertically or horizontally. A vertical bar chart is sometimes called a line graph. 
+
+```{r}
+colors=c('red','green','blue','yellow')
+freq=c(5,10,15,3)
+barplot(freq,col = c('red','green','blue','yellow'))
+
+```
+
+**2.Pie plot**:A pie chart (or a circle chart) is a circular statistical graphic, which is divided into slices to illustrate numerical proportion. In a pie chart, the arc length of each slice (and consequently its central angle and area), is proportional to the quantity it represents.
+```{r}
+pie(freq,col = c('red','green','blue','yellow'))
+```
+
+###Bivariate Data:
+**1.Scatterp Plot**:A scatter plot (also called a scatterplot) is a type of plot or mathematical diagram using Cartesian coordinates to display values for typically two variables for a set of data
+
+```{r}
+years=(2001:2009)
+popin1000s=3^(years-min(years))
+plot(years,popin1000s)
+```
 
 ## Shapes OF Distribuitions:
 **1.Symmetric(Bell shaped)**: Unimode. Occurs in normal distributions. - when graphed, a vertical line drawn at the center will Form mirror images, with the leFt halF oF the graph being the mirror image oF the right halF oF the graph.
-```{r a4 , echo=FALSE, Fig.cap="A caption", out.width = '50%'}
+```{r  , echo=FALSE, Fig.cap="A caption", out.width = '50%'}
 knitr::include_graphics("C:/Users/himank/Desktop/markdown resources/symmetric.png")
 ```
 
@@ -88,7 +141,7 @@ knitr::include_graphics("C:/Users/himank/Desktop/markdown resources/symmetric.pn
 
 
 **2.UniForm**: The data is spread equally across the range.
-```{r a5 , echo=FALSE, Fig.cap="A caption", out.width = '50%'}
+```{r  , echo=FALSE, Fig.cap="A caption", out.width = '50%'}
 knitr::include_graphics("C:/Users/himank/Desktop/markdown resources/uniForm.png")
 ```
 
@@ -99,7 +152,7 @@ knitr::include_graphics("C:/Users/himank/Desktop/markdown resources/uniForm.png"
 
 
 **3.Right Skewed**(positively skewed): Fewer data plots are Found to the right oF the graph (toward the larger numeric values).
-```{r a6, echo=FALSE, Fig.cap="A caption", out.width = '50%'}
+```{r, echo=FALSE, Fig.cap="A caption", out.width = '50%'}
 knitr::include_graphics("C:/Users/himank/Desktop/markdown resources/rightskewed.png")
 ```
 
@@ -109,7 +162,7 @@ knitr::include_graphics("C:/Users/himank/Desktop/markdown resources/rightskewed.
 
 
 **4.LeFt Skewed** (negatively skewed): Fewer data plots are Found to the leFt oF the graph (toward the smaller numeric values).
-```{r a7, echo=FALSE, Fig.cap="A caption", out.width = '50%'}
+```{r , echo=FALSE, Fig.cap="A caption", out.width = '50%'}
 knitr::include_graphics("C:/Users/himank/Desktop/markdown resources/leFtskewed.png")
 ```
 
@@ -160,13 +213,7 @@ fivenum(pups)
 ```
 ***
 ***
-##Box and whisker plots:
 
-A box and whisker plot is a very convenient and informative way to diplay the info captured in the five number summary. A box and whisker plot shows the centers and spread of the values on a single quantative variable.
-
-```{r , echo=FALSE, Fig.cap="A caption", out.width = '50%'}
-knitr::include_graphics("C:/Users/himank/Desktop/markdown resources/boxwhisker.png")
-```
 
 
 ##Standard Deviation And Mean:
@@ -204,5 +251,90 @@ $$z=Deviation/Standard Deviation$$
 
 #Bivariate Data:
 Bivariate Data is data set with two variables (quantative or categorical).
+***
 **Correlation** measures the linear relationship between two quantative variables.
-  
+**Corelation Coefficient**:A correlation coefficient is a numerical measure of some type of correlation, meaning a statistical relationship between two variables.Correlation coefficien time is given by $$r$$.
+```{r , echo=FALSE, Fig.cap="A caption", out.width = '50%'}
+knitr::include_graphics("C:/Users/himank/Desktop/markdown resources/cor.png")
+```
+
+**Outliers**:In statistics, an outlier is an observation point that is distant from other observations. An outlier may be due to variability in the measurement or it may indicate experimental error; the latter are sometimes excluded from the data set.The higher the $r$ value the higher is the correlation between the two variables
+Outliers can impact data analysis in unwanted ways as shown below:
+```{r , echo=FALSE, Fig.cap="A caption", out.width = '50%'}
+knitr::include_graphics("C:/Users/himank/Desktop/markdown resources/cornout.png")
+```
+
+***
+##Choosing between Measures of Center And Spread:
+**1.Symmetric Distribution**: *Mean* and *Standard Deviation*
+**2.Skewed Distribution**: *Median* and *IQR*
+
+ **NOTE:**: For skewed distribution we use *Median* and *IQR*  because median is outlier resistant, where as mean is not.
+ 
+##Contingency tables:
+Contingency table shows the distribution of one variable in rows and another in columns, used to study the correlation between the two variables.
+```{r , echo=FALSE, Fig.cap="A caption", out.width = '50%'}
+knitr::include_graphics("C:/Users/himank/Desktop/markdown resources/contingency.png")
+```
+Barplots of contigency tables can help compare the two categorical variables. 
+***
+***
+***
+#Regression
+In statistical modeling, regression analysis is a set of statistical processes for estimating the relationships among variables. It includes many techniques for modeling and analyzing several variables, when the focus is on the relationship between a dependent variable and one or more independent variables.
+
+**1.Linear Regression:** Linear regression is a linear approach to modelling the relationship between a scalar response and one or more explanatory variables. 
+Here, data is modelled to find a line of best fit to the data using [Method of least squares](https://en.wikipedia.org/wiki/Least_squares).
+The equation is given by 
+$$y=mx+c$$
+where x is independent variable,y is dependent variable,c is y intercept and m is regression coefficient given by:
+$$m=r*Sy/Sx$$
+where Sy$Sx are standard deviations of respective x and y scores.
+In R linear model can be fit using lm()
+```{r}
+library(SDSFoundations)
+year=c(2001:2009)
+population=year*15+20000
+linFit(year,population)
+```
+***
+**2.Exponential Regression:**
+An exponential regression is the process of finding the equation of the exponential function that fits best for a set of data. As a result, we get an equation of the form
+$$y=ab^x$$
+where y is dependent variable,x is independent variable, a is intercept and b is growth factor.
+**NOTE**: b (growth factor)is equal to $$1+rate of change in y$$.
+Exponential Regression is usually used in half-life,depreciation,compound interest problems and others.
+```{r}
+x=c(0,1,2,3,4,5)
+y=c(3,7,10,24,50,95)
+expFit(x,y)
+```
+***
+###Difference b/w Linear and Exponential models:
+If change in y is constant (Example: y=1,3,5,7) with respect to unit change in x then linear model suits better. if y changes in ratio (Example: y=2,4,8,16)with respect to unit change in x then exponential model is better.
+*NOTE*: Exponential model can be transformed to linear mdoel by applying log to both sides of exponential equation.
+i.e $$y=ab^x$$ is same as $$log(y)=log(a)+xlog(b)$$
+
+***
+**3.Logistic Regression:**
+In statistics, the logistic model (or logit model) is a widely used statistical model that, in its basic form, uses a logistic function to model a binary dependent variable.
+Logistic models are much like exponential models but they have an upper limit due to some factors.
+$$f(t)=C/(1+a*b^-t)$$
+where c is carrying capacity,a is a constant that helps find f(0),b is growth factor.
+
+**Inflection Point**: The point at which the logistic function starts to slow down.
+It is $$C/2$$ where $$C$$ is carrying capacity.
+```{r}
+time=0:9
+motorvehicles=c(27433000,28236000,28999705,29594461,30590349,31233663,31437297,31998958,32221383,32258677)
+logisticFit(time,motorvehicles)
+```
+
+
+```{r, echo=FALSE, Fig.cap="A caption", out.width = '50%'}
+knitr::include_graphics("C:/Users/himank/Desktop/markdown resources/explog.png")
+```
+
+***
+#THANK YOU
+***
