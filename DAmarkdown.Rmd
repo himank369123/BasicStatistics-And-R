@@ -9,22 +9,200 @@ output: pdf_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
+#Contents
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+This is an R Markdown document consisting basic methods oF *data analysis, stastical inFerence, data visualization* and some other data inbuilt Function oF R.
+A large part oF the data and methods used in this document were taken From Foundation OF Data Analysis part-I From **edx** <https://courses.edx.org/courses/course-v1:UTAustinX+UT.7.11x+2T2017/course/>
 
-```{r cars}
-summary(cars)
+#UniVariate Data:
+Univariate means "one variable" (one type oF data)
+Example: You weigh the pups and get these results:
+1,3,4,6,8,10,12
+The one variable is Puppy Weight
+
+```{r }
+pups=c(1,3,4,6,8,10,10)
 ```
 
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
+##Measure OF Center In Univariate Data
+* Mean:The arithmetic mean is the central value oF a discrete set oF numbers: speciFically, the sum oF the values divided by the number oF values.
+```{r a1, echo=FALSE, Fig.cap="A caption", out.width = '50%'}
+knitr::include_graphics("C:/Users/himank/Desktop/markdown resources/meanFormula.png")
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+
+
+
+
+
+
+
+For our puppy weights data set mean is:
+```{r}
+mean(pups)
+```
+
+*Median:The median is the value separating the higher halF From the lower halF oF a data sample. For a data set, it may be thought oF as the "middle" value.
+```{r a2, echo=FALSE, Fig.cap="A caption", out.width = '50%'}
+knitr::include_graphics("C:/Users/himank/Desktop/markdown resources/medianFormula.png")
+```
+For our puppy weights data set median is:
+```{r}
+median(pups)
+```
+*Mode:The mode oF a set oF data values is the value that appears most oFten.
+For our puppy weights data set mode is:
+```{r}
+mode(pups)
+```
+
+
+
+
+
+***
+```{r a3, echo=FALSE, Fig.cap="A caption", out.width = '50%'}
+knitr::include_graphics("C:/Users/himank/Desktop/markdown resources/mmm.png")
+```
+***
+
+
+
+
+
+
+## Shapes OF Distribuitions:
+**1.Symmetric(Bell shaped)**: Unimode. Occurs in normal distributions. - when graphed, a vertical line drawn at the center will Form mirror images, with the leFt halF oF the graph being the mirror image oF the right halF oF the graph.
+```{r a4 , echo=FALSE, Fig.cap="A caption", out.width = '50%'}
+knitr::include_graphics("C:/Users/himank/Desktop/markdown resources/symmetric.png")
+```
+
+
+
+
+
+
+
+
+
+**2.UniForm**: The data is spread equally across the range.
+```{r a5 , echo=FALSE, Fig.cap="A caption", out.width = '50%'}
+knitr::include_graphics("C:/Users/himank/Desktop/markdown resources/uniForm.png")
+```
+
+
+
+
+
+
+
+**3.Right Skewed**(positively skewed): Fewer data plots are Found to the right oF the graph (toward the larger numeric values).
+```{r a6, echo=FALSE, Fig.cap="A caption", out.width = '50%'}
+knitr::include_graphics("C:/Users/himank/Desktop/markdown resources/rightskewed.png")
+```
+
+
+
+
+
+
+**4.LeFt Skewed** (negatively skewed): Fewer data plots are Found to the leFt oF the graph (toward the smaller numeric values).
+```{r a7, echo=FALSE, Fig.cap="A caption", out.width = '50%'}
+knitr::include_graphics("C:/Users/himank/Desktop/markdown resources/leFtskewed.png")
+```
+
+
+
+
+
+**5.Bimodal**: Usually has two modes.
+```{r a8, echo=FALSE, Fig.cap="A caption", out.width = '50%'}
+knitr::include_graphics("C:/Users/himank/Desktop/markdown resources/bimodal.png")
+```
+
+##Creating a Frequency table For A variable:
+```{r}
+ptable=table(pups)
+ptable
+```
+
+##Plotting Histogram For a Univariate Distribution:
+
+```{r}
+hist(pups,xlab='puppies',ylab='Frequency',main='no. oF puppies vs Freq')
+```
+
+***
+***
+
+##Range and Quartiles:
+*Range: The range is simply the diFFerence between the smallest value (minimum) and the largest value (maximum) in the data.
+In our puppies dataset range is:
+```{r}
+range(pups)
+```
+
+*Quartile: A quartile divides the data into Four approximately equal groups. The lower quartile,sometimes abbreviated as Q1 , is also know as the 25th percentile.The upper quartile, or Q3, is also know as the 75th percentile. 
+We can get a summary oF our pups data in R  using summary() Function which inlcudes quartiles,min,max mean,median,etc..
+```{r}
+summary(pups)
+```
+
+*Interquartile Range: The interquartile range (IQR) is the range oF the data that contains the middle 50% oF cases. 
+$IQR=Q3-Q1$
+
+##five number summary:
+The five number summary is a numerical description of a data set comprised of the following measures: min,lower quartile,median,upper quartile,max. 
+```{r}
+fivenum(pups)
+```
+***
+***
+##Box and whisker plots:
+
+A box and whisker plot is a very convenient and informative way to diplay the info captured in the five number summary. A box and whisker plot shows the centers and spread of the values on a single quantative variable.
+
+```{r , echo=FALSE, Fig.cap="A caption", out.width = '50%'}
+knitr::include_graphics("C:/Users/himank/Desktop/markdown resources/boxwhisker.png")
+```
+
+
+##Standard Deviation And Mean:
+When data is normally Distributed, there are two preferred measures of center and spread. These are arithmetic mean and standard deviation.The **Standard Deviation** of  a data set tells us how it is spread out. The larger the standard deviation is,the more spread out data is.
+A vertical line from inflectionn point to x-axis marks one standard deviation from the mean.Approx 68% of the data is located within one standard deviation of the mean.
+For out pups data std dev is:
+```{r}
+sd(pups)
+```
+
+
+```{r , echo=FALSE, Fig.cap="A caption", out.width = '50%'}
+knitr::include_graphics("C:/Users/himank/Desktop/markdown resources/z.png")
+```
+
+##Variance:
+**Variance** is also a measure of spread. It is simply the square of Standar Deviation.
+For our pups data variance is:
+```{r}
+var(pups)
+```
+
+##Emperical Rule:
+Emperical Rule states that the percentages of data in a normal distribution within 1,2 and 3 standard deviations of the mean are approximately 68%,95% and 99.7%.
+
+```{r , echo=FALSE, Fig.cap="A caption", out.width = '50%'}
+knitr::include_graphics("C:/Users/himank/Desktop/markdown resources/empirical.png")
+```
+
+###Z-Score:
+A **z-score** is a measure of the number of standard deviations a particular data point is away from the mean.
+$$z=Deviation/Standard Deviation$$
+***
+***
+
+#Bivariate Data:
+Bivariate Data is data set with two variables (quantative or categorical).
+**Correlation** measures the linear relationship between two quantative variables.
+  
