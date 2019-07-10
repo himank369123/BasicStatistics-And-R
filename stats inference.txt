@@ -1,0 +1,97 @@
+statistical interference:
+
+
+1)
+Binomial dist:
+prob(x out of n):    ncx * p^x * q^(n-x)
+R code:              
+choose(n,x)* p^x * q^(n-x)
+pbinom(x,n,prob)
+
+
+2)
+Normal dist/t dist:
+z=(u-u0/s.e.)
+z-quant	inb/w	below
+1.645	90%	95%
+1.96	95%	97.5%
+
+R code:
+qnorm(.975,mean,sd) -> 1.645   or qt(.975,df)
+pnorm(x,mean,sd,lower.tail=TRUE/FALSE)
+
+
+3)
+Poisson dist:
+lambda=X/t
+lambda=np
+(m^x*e^-m)x!
+r code: 
+ppois(u0,lambda,lower.tail=T/F)
+
+
+
+
+
+
+
+4)confidence intervals:
+p +/- z*S.E.
+rcode:
+p + c(-1,1)* qnorm(0.975)*S.E.
+or 
+binom.test(x,n)$conf
+poison.test(x,T)$conf`
+t.test(difference)$conf //paired difference=g2-g1
+t.test(g2,g1,paired=TRUE)$conf //paired
+t.test(g2,g1,paired=FALSE,var.equal=TRUE/FALSE)$conf //unpaired
+
+
+
+5)Hypothesis:
+alpha:type 1 error : false negative ~ rejecting null h0 when h0 is true
+beta:type 2 error: false positive ~ accepting null h0 when alternate h0 is false
+if qnorm<z0 accept h0, else reject
+ equivalently for   qt<z0
+
+p-values: if pvalue is low, it means that prob of getting a value as or more extreme as we saw is rare so either h0 is wrong or rare event.
+	  if p value is large, it means that prob of getting the ovserved value is fairly good.
+	compare p value to required alpha rate. if p is lower. reject h0 else accept.
+
+power:
+1-beta ~ rejecting when h0 is indeed false.
+alpha is proportional to power but inversely proportional to beta.
+
+calculating power.
+power.t.test(n,delta=u0-ua,sd,type="one.sample",alt="one.sided")$power
+
+
+ just substitue u=ua 
+z=u-ua/S.E.
+pnorm(mu0+z*S.E,mean=mua,sd=sd,lower.tail=false)
+
+
+6) error control/ multiple testing:
+
+let us do m hypothesis tests and calculate p value for all tests.
+then,
+with no correction all p[i] ,such that p[i]<alpha rate, are significant
+with fwer (bonferonni) correction all p[i] such that p[i] < alpha/m rate are significant
+with FDR (false discovery rate/BH) all p[i] ordered in ascending, such that p[i]<alpha*i/m, are significant.
+
+fwer controls most but very restricted, fdr is realistic in b/w correction used in most areas.
+
+R code:
+p.adjust(pValues,method="bonferroni")
+p.adjust(pValues,method="BH")
+
+
+Bootstrapping: 
+consider only one sample of size n.
+then choosing n datapoints from that sample with replacement yields another sample.
+doing this m times gives us m samples. taking the statistic of these samples gives us emprical sampling distribution or bootstrap distribution.
+Permuations:
+permuting datapoints in different categories to check if there is a diff b/w categories.
+
+
+
