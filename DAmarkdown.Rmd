@@ -2,7 +2,10 @@
 title: "DATA ANALYSIS USING R"
 author: "Himank Jain"
 date: "February 8, 2019"
-output: pdf_document
+output:
+  html_document:
+    df_print: paged
+  pdf_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -38,7 +41,7 @@ mean(pups)
 
 *Median:The median is the value separating the higher halF From the lower halF oF a data sample. For a data set, it may be thought oF as the "middle" value.
 ```{r a2, echo=FALSE, Fig.cap="A caption", out.width = '50%'}
-knitr::include_graphics("D:/github/BasicStatistics-And-R/medi.png")
+knitr::include_graphics("medi.png")
 ```
 For our puppy weights data set median is:
 ```{r}
@@ -56,7 +59,7 @@ mode(pups)
 
 ***
 ```{r a3, echo=FALSE, Fig.cap="A caption", out.width = '50%'}
-knitr::include_graphics("D:/github/BasicStatistics-And-R/mode.png")
+knitr::include_graphics("mode.png")
 ```
 ***
 
@@ -71,7 +74,7 @@ hist(pups)
 ```
 
 ```{r , echo=FALSE, Fig.cap="A caption", out.width = '50%'}
-knitr::include_graphics("D:/github/BasicStatistics-And-R/hist.png")
+knitr::include_graphics("hist.png")
 ```
 
 
@@ -83,14 +86,14 @@ dotchart(pups)
 
 **3.Stem and Leaf Plot**:A Stem and Leaf Plot is a special table where each data value is split into a "stem" (the first digit or digits) and a "leaf" (usually the last digit). Like in this example:
 ```{r  , echo=FALSE, Fig.cap="A caption", out.width = '50%'}
-knitr::include_graphics("D:/github/BasicStatistics-And-R/stem.png")
+knitr::include_graphics("stem.png")
 ```
 
 
 **4.Box and Whisker Plot**:A box and whisker plot is a very convenient and informative way to diplay the info captured in the five number summary. A box and whisker plot shows the centers and spread of the values on a single quantative variable.
 
 ```{r , echo=FALSE, Fig.cap="A caption", out.width = '50%'}
-knitr::include_graphics("D:/github/BasicStatistics-And-R/box1.png")
+knitr::include_graphics("box1.png")
 ```
 
 ###Categorical Data:
@@ -120,7 +123,7 @@ plot(years,popin1000s)
 ## Shapes OF Distribuitions:
 **1.Symmetric(Bell shaped)**: Unimode. Occurs in normal distributions. - when graphed, a vertical line drawn at the center will Form mirror images, with the leFt halF oF the graph being the mirror image oF the right halF oF the graph.
 ```{r  , echo=FALSE, Fig.cap="A caption", out.width = '50%'}
-knitr::include_graphics("D:/github/BasicStatistics-And-R/bell.png")
+knitr::include_graphics("bell.png")
 ```
 
 
@@ -133,7 +136,7 @@ knitr::include_graphics("D:/github/BasicStatistics-And-R/bell.png")
 
 **2.UniForm**: The data is spread equally across the range.
 ```{r  , echo=FALSE, Fig.cap="A caption", out.width = '50%'}
-knitr::include_graphics("D:/github/BasicStatistics-And-R/uniform.png")
+knitr::include_graphics("uniform.png")
 ```
 
 
@@ -153,7 +156,7 @@ knitr::include_graphics("D:/github/BasicStatistics-And-R/uniform.png")
 
 **4.LeFt Skewed** (negatively skewed): Fewer data plots are Found to the leFt oF the graph (toward the smaller numeric values).
 ```{r , echo=FALSE, Fig.cap="A caption", out.width = '50%'}
-knitr::include_graphics("D:/github/BasicStatistics-And-R/skew.png")
+knitr::include_graphics("skew.png")
 ```
 
 
@@ -162,7 +165,7 @@ knitr::include_graphics("D:/github/BasicStatistics-And-R/skew.png")
 
 **5.Bimodal**: Usually has two modes.
 ```{r a8, echo=FALSE, Fig.cap="A caption", out.width = '50%'}
-knitr::include_graphics("D:/github/BasicStatistics-And-R/bimodal.png")
+knitr::include_graphics("bimodal.png")
 ```
 
 ##Creating a Frequency table For A variable:
@@ -216,7 +219,7 @@ sd(pups)
 
 
 ```{r , echo=FALSE, Fig.cap="A caption", out.width = '50%'}
-knitr::include_graphics("D:/github/BasicStatistics-And-R/sd.png")
+knitr::include_graphics("sd.png")
 ```
 
 ##Variance:
@@ -230,7 +233,7 @@ var(pups)
 Emperical Rule states that the percentages of data in a normal distribution within 1,2 and 3 standard deviations of the mean are approximately 68%,95% and 99.7%.
 
 ```{r , echo=FALSE, Fig.cap="A caption", out.width = '50%'}
-knitr::include_graphics("D:/github/BasicStatistics-And-R/emp.png")
+knitr::include_graphics("emp.png")
 ```
 
 ###Z-Score:
@@ -245,13 +248,13 @@ Bivariate Data is data set with two variables (quantative or categorical).
 **Correlation** measures the linear relationship between two quantative variables.
 **Corelation Coefficient**:A correlation coefficient is a numerical measure of some type of correlation, meaning a statistical relationship between two variables.Correlation coefficien time is given by $$r$$.
 ```{r , echo=FALSE, Fig.cap="A caption", out.width = '50%'}
-knitr::include_graphics("D:/github/BasicStatistics-And-R/cor.png")
+knitr::include_graphics("cor.png")
 ```
 
 **Outliers**:In statistics, an outlier is an observation point that is distant from other observations. An outlier may be due to variability in the measurement or it may indicate experimental error; the latter are sometimes excluded from the data set.The higher the $r$ value the higher is the correlation between the two variables
 Outliers can impact data analysis in unwanted ways as shown below:
 ```{r , echo=FALSE, Fig.cap="A caption", out.width = '50%'}
-knitr::include_graphics("D:/github/BasicStatistics-And-R/scat.png")
+knitr::include_graphics("scat.png")
 ```
 
 ***
@@ -264,7 +267,7 @@ knitr::include_graphics("D:/github/BasicStatistics-And-R/scat.png")
 ##Contingency tables:
 Contingency table shows the distribution of one variable in rows and another in columns, used to study the correlation between the two variables.
 ```{r , echo=FALSE, Fig.cap="A caption", out.width = '50%'}
-knitr::include_graphics("D:/github/BasicStatistics-And-R/contin.png")
+knitr::include_graphics("contin.png")
 ```
 Barplots of contigency tables can help compare the two categorical variables. 
 ***
@@ -322,7 +325,7 @@ logisticFit(time,motorvehicles)
 
 
 ```{r, echo=FALSE, Fig.cap="A caption", out.width = '50%'}
-knitr::include_graphics("D:/github/BasicStatistics-And-R/log1.png")
+knitr::include_graphics("log1.png")
 ```
 
 ***
